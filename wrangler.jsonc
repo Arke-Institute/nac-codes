@@ -1,0 +1,22 @@
+{
+  // Cloudflare Worker Configuration
+  "name": "ai-reconciliation",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-01-01",
+
+  // Environment variables (non-sensitive)
+  "vars": {
+    "DEEPINFRA_MODEL": "meta-llama/Llama-3.3-70B-Instruct"
+  },
+
+  // To set secrets in production:
+  // wrangler secret put DEEPINFRA_API_KEY
+  //
+  // For local development, secrets are read from .dev.vars
+  "routes": [
+    {
+      "pattern": "ai-reconciliation.arke.institute",
+      "custom_domain": true
+    }
+  ]
+}
